@@ -6,8 +6,8 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   background-color: ${(props) => props.theme.colors.primary};
-  padding: 2rem;
-  height: 15vh;
+  padding:0 2rem;
+  height: 10vh;
 
   .logo {
     fill: ${(props) => props.theme.colors.text};

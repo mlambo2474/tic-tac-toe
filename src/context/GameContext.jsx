@@ -7,12 +7,14 @@ export const GameContextProvider = (props) => {
   const [gameState, setGameState] = useState({
     board: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     player1 : {
-        name: "tonderai",
-        symbol : "x"
+        name: "Tonderai",
+        symbol : "x",
+        score: 0
     },
     player2: {
         name: "Shawn",
-        symbol : "o"
+        symbol : "o",
+        score: 0
     },
     turn: "x"
 });
@@ -26,9 +28,17 @@ export const GameContextProvider = (props) => {
           turn: gameState.turn === "x"? "o" : "x"
         })
 }
+const resetBoard = ()=>{
+    setGameState({
+        ...gameState,
+        board: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        turn: "x"
+    })
+}
+
 
   return (
-    <GameContext.Provider value={{ gameState, updateBoard  }}>
+    <GameContext.Provider value={{ gameState, updateBoard, resetBoard  }}>
       {props.children}
     </GameContext.Provider>
   );
