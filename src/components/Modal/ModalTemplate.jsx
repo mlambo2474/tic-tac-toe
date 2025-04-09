@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ReactDom from "react-dom";
-import { ModalContext } from "../../context/ModalContext";
+import  ModalContext from "../../context/ModalContext";
 import { ModalBackdrop  } from "./Modal.styled";
 import { ModalContainer } from "./Modal.styled";
 /**

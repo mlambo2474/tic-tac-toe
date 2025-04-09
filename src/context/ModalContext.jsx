@@ -3,7 +3,8 @@ import { createContext, useState } from "react";
 import useModal from "../hooks/useModal";
 import ModalTemplate from "../components/Modal/ModalTemplate";
 
-export const ModalContext = createContext({});
+
+const ModalContext = createContext({});
 
 export const ModalContextProvider = ({ children }) => {
   const { modal, modalContent, handleModal } = useModal();
@@ -15,3 +16,6 @@ export const ModalContextProvider = ({ children }) => {
     </ModalContext.Provider>
   );
 };
+
+
+export default ModalContext;

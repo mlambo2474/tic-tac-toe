@@ -26,6 +26,13 @@ justify-content: center;
 color: ${(props) => props.theme.colors.primary};
 background-color: ${(props) => props.theme.colors.secondary};
 
+${(props) => props.theme.media.mobile}{
+    /* flex-direction: row; */
+    min-width: 200px;
+    /* justify-content: center;
+    align-items: center; */
+   }
+
 `
 export const ModalHeader = styled.div`
 display: flex;

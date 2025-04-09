@@ -1,13 +1,22 @@
 import React from "react";
-import { PlayerWrapper } from "./Player.styled";
+import { Subtitle } from "../../styles/General.styled";
+import Avatar, { genConfig } from "react-nice-avatar";
+import { PlayerWrapper, AvatarWrapper } from "./Player.styled";
 
-const Player = ({ player }) => {
+const Player = ({ player, isPlayerActive }) => {
+  const config = genConfig();
+
   return (
-    <PlayerWrapper>
-      <div>
-        {player.name}({player.symbol})
-      </div>
-      <div>{player.score}</div>
+    //nullish the isPlayerActive prop if it is not passed(nullish coalescing operator)
+    <PlayerWrapper >
+      <AvatarWrapper isPlayerActive={isPlayerActive ?? false}>
+        <Avatar {...player.avatarconfig} />
+      </AvatarWrapper>
+
+      <Subtitle>
+        {player.name}({player.symbol.toUpperCase()})
+      </Subtitle>
+      <Subtitle>{player.score}</Subtitle>
     </PlayerWrapper>
   );
 };

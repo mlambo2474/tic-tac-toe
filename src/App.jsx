@@ -6,7 +6,7 @@ import "./App.css";
 import { lightTheme } from "./styles/theme";
 import { darkTheme } from "./styles/theme";
 import { ThemeContext } from "./context/ThemeContext";
-import { ModalContextProvider } from "./context/ModalContext";
+// import { ModalContextProvider } from "./context/ModalContext";
 
 function App() {
   const { theme } = useContext(ThemeContext);
@@ -15,10 +15,8 @@ function App() {
   console.log("theme >>>", theme);
   return (
     <ThemeProvider theme={mode}>
-      <ModalContextProvider>
-        <GlobalStyles />
-        <Router />
-      </ModalContextProvider>
+      <GlobalStyles />
+      <Router />
     </ThemeProvider>
   );
 }
