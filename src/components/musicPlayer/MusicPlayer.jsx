@@ -39,6 +39,7 @@ const MusicPlayer = () => {
    
 
   };
+
   console.log( playList[currentSong].split("/"));
   const displaySong = playList[currentSong].split("/")[6];
 

@@ -24,6 +24,7 @@ export const GameContextProvider = (props) => {
     },
     turn: "x",
     RoundWinner: "",
+    winningCombo: [],
   });
   // console.log("player1 is ", gameState.player1);
   const updateBoard = (index) => {
@@ -42,6 +43,8 @@ export const GameContextProvider = (props) => {
       ...gameState,
       board: [null, null, null, null, null, null, null, null, null],
       turn: "x",
+      RoundWinner: "",
+      winningCombo :[],
     });
   };
 
@@ -63,7 +66,7 @@ export const GameContextProvider = (props) => {
     }));
   };
 
-  const updateScore = (winner) => {
+  const updateScore = (winner, result) => {
     //winner is going to be either player, player 2 or draw
     if (winner === "draw") {
       setGameState((prevState) => ({
@@ -77,6 +80,7 @@ export const GameContextProvider = (props) => {
           score: prevState.player2.score + 0.5,
         },
         roundWinner: "",
+        winningCombo: [0, 1, 2, 3, 4, 5, 6, 7, 8],
       }));
     } else {
       setGameState((prevState) => ({
@@ -86,6 +90,7 @@ export const GameContextProvider = (props) => {
           score: prevState[winner].score + 1,
         },
         roundWinner: prevState[winner],
+        winningCombo : result,
       }));
     }
   };
@@ -93,15 +98,15 @@ export const GameContextProvider = (props) => {
   const roundComplete = (result) => {
     if (gameState.turn === gameState.player1.symbol && result !== "draw") {
       // console.log("player 1 wins");
-      updateScore("player1");
+      updateScore("player1", result);
     } else if (
       gameState.turn === gameState.player2.symbol &&
       result !== "draw"
     ) {
       // console.log("player 2 win");
-      updateScore("player2");
+      updateScore("player2", result);
     } else {
-      updateScore("draw");
+      updateScore("draw", result);
       // console.log("draw");
     }
     switchTurn();
@@ -126,6 +131,7 @@ export const GameContextProvider = (props) => {
       },
       turn: "x",
       RoundWinner: "",
+      winningCombo :[],
     })
   }
   return (

@@ -20,24 +20,27 @@ export const CheckForwinner = (board) => {
   for (let i = 0; i < 9; i+=3) {
     if (checkSequence(board[i], board[i + 1], board[i + 2])) {
         console.log("we have a row winner")
-      return true;
+        //return not just TRUE but the winning combo which is the indices of the gamecells the
+        //decideded the winner
+        return [i, i + 1, i + 2]
+      ;
     }
   }
 
   for(let i = 0; i < 3; i+=1){
     if(checkSequence(board[i], board[i + 3], board[i + 6])){
         console.log("we have a column winner")
-        return true;
+        return  [i, i + 3, i + 6];
     }
   }
 
   if(checkSequence(board[0], board[4], board[8])){
       console.log("we have a diagonal winner")
-      return true;
+      return  [0, 4, 8];
   }
   if(checkSequence(board[2], board[4], board[6])){
       console.log("we have a diagonal winner")
-      return true;
+      return [2, 4, 6];
   }
 
   if(!board.includes(null)){

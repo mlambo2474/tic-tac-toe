@@ -10,12 +10,12 @@ export const MusicPlayerWrapper = styled.div`
     right: 0;
     width: 100%;
     height: 10vh;
-    background-color: ${({ theme }) => theme.colors.background};
+    /* background-color: ${({ theme }) => theme.colors.background}; */
     color: ${({ theme }) => theme.colors.text};
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: ${({ theme }) => theme.boxShadow};
+    /* box-shadow: ${({ theme }) => theme.boxShadow}; */
     cursor: pointer;
 `
 export const PlayIcon = styled(MdPlayArrow)`

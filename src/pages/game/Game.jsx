@@ -7,6 +7,7 @@ import Player from "../../components/Player/Player";
 
 const Game = () => {
   const { gameState } = useContext(GameContext);
+
   // console.log("gameState in Game is", gameState)
   return (
     <Container>
@@ -16,7 +17,12 @@ const Game = () => {
       />
       <GameBoardWrapper>
         {gameState.board.map((item, index) => (
-          <GameCell key={index} cellItem={item} index={index} />
+          <GameCell
+            key={index}
+            cellItem={item}
+            index={index}
+            isWinningCell={gameState.winningCombo?.includes(index)}
+          />
         ))}
       </GameBoardWrapper>
       <Player
