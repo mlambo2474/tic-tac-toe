@@ -6,6 +6,7 @@ import "./App.css";
 import { lightTheme } from "./styles/theme";
 import { darkTheme } from "./styles/theme";
 import { ThemeContext } from "./context/ThemeContext";
+import MusicPlayer from "./components/musicPlayer/MusicPlayer";
 // import { ModalContextProvider } from "./context/ModalContext";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   return (
     <ThemeProvider theme={mode}>
       <GlobalStyles />
+      <MusicPlayer />
       <Router />
     </ThemeProvider>
   );
